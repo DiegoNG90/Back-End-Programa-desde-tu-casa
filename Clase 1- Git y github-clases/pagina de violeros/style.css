@@ -1,0 +1,16 @@
+/* #foto-jh{
+    background-image: url("./img/jh.jpg");
+    background-color: #cccccc;
+} */
+
+.oculto{
+    display:none;
+}
+
+h1, h3{
+    text-align: center;
+}
+
+.jumbotron{
+    background-color: #186bbf8a;
+}

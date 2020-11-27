@@ -1,0 +1,14 @@
+{
+  "name": "node_primeros_pasos",
+  "version": "1.0.0",
+  "description": "\"clase introductoria de NodeJS y NPM\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DNG",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^16.1.0"
+  }
+}
