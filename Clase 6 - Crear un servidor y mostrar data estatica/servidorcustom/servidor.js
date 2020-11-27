@@ -1,4 +1,5 @@
 const express = require('express');
+//Al instanciar a express, creamos el servidor. Ésta línea sería la equivalente a http.createServer()
 const app = express();
 const hbs = require('hbs')
 
