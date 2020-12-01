@@ -20,9 +20,7 @@ const app = express();
 //     res.send("Estás tomando los usuarios desde el método get");
 // });
 
-app.listen(8080, () =>{
-    console.log("Servidor 8080 escuchando");
-})
+
 /* EJERCICIO 3.
 Modificar el ejercicio anterior para que devuelva un JSON
 {
@@ -41,6 +39,9 @@ app.get('/api/usuarios', (req,res) =>{
     res.send(user);
     console.log(user);
 });
+app.listen(8080, () =>{
+    console.log("Servidor 8080 escuchando");
+})
 
 /*EJERCICIO 4.
 Agregar el parámetro nombreusuario al final de la ruta
