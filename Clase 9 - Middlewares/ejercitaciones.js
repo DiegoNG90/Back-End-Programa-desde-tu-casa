@@ -9,7 +9,7 @@ const app = express();
 let evento; 
 
 const myMiddleware = (req,res, next)=> {
-    evento = new Date().toLocaleDateString();
+    evento = new Date().toLocaleTimeString();
     console.log(evento);
 
     //No se puede hacer; ésto no es estrictamente una funcion.
