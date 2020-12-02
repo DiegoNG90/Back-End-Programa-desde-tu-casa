@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
+
+//Ésto lo sacamos de la documentacion oficial. Morgan es un middleware externo que se usa bastante para chequear statusCode, metodo, tiempo de ejecucion y peso en bits.
+app.use(morgan('tiny'));
 
 const estaLogueado = () => true;
 const pagoCuota = () => true;
