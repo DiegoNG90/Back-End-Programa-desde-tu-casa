@@ -35,13 +35,23 @@ app.get('/', (req,res) =>{
 app.get('/nosotros', (req,res) =>{
     res.send("Pagina nosotros");
 })
-
+/*
 const pagina404 = (req, res, next) => {
     res.status(404).send("Pagina no encontrada");
 }
 
 app.use(pagina404);
+*/
 
+app.get('/usuarios/:id', (req, res, next) => {
+    if(req.params.id){
+        next();
+    }else{
+        console.log("El usuario no existe");
+    }
+}, (req,res, next) => {
+    res.send(`Bienvenido , ${req.params.id}`)
+})
 
 
 app.listen(8080, ()=> {
