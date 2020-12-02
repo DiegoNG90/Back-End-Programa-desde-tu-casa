@@ -32,6 +32,15 @@ app.get('/', (req,res) =>{
     res.send("Pagina web MAIN");
 })
 
+app.get('/nosotros', (req,res) =>{
+    res.send("Pagina nosotros");
+})
+
+const pagina404 = (req, res, next) => {
+    res.status(404).send("Pagina no encontrada");
+}
+
+app.use(pagina404);
 
 
 
