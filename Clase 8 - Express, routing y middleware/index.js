@@ -31,19 +31,40 @@ Modificar el ejercicio anterior para que devuelva un JSON
 //ésta línea va a permitir a EXPRESS leer el JSON, interpretarlo y mostrarlo
 // app.use(express.json());
 
-app.get('/api/usuarios', (req,res) =>{
-    const user = {
-        usuario: "uss1",
-        password: "contrasenia123"
-    }
-    res.send(user);
-    console.log(user);
-});
-app.listen(8080, () =>{
-    console.log("Servidor 8080 escuchando");
-})
+// app.get('/api/usuarios', (req,res) =>{
+//     const user = {
+//         usuario: "uss1",
+//         password: "contrasenia123"
+//     }
+//     res.send(user);
+//     console.log(user);
+// });
+
+//Ésta es la respuesta correcta
+// app.get('/api/usuarios', (req,res) =>{
+//     res.json({
+//         "usuario": "uss1",
+//         "password": "contrasenia123"
+//     })
+// });
 
 /*EJERCICIO 4.
 Agregar el parámetro nombreusuario al final de la ruta
 /api/usuarios/
 Para hacerla dinámica. */
+
+
+app.get('/api/usuarios/:nombreusuario', (req,res) => {
+    res.json({
+        "usuario": "uss1",
+        "password": "contrasenia123",
+        "nombreusuario": `${req.params.nombreusuario}`
+    })
+
+    // Al enviar la res.json, la res.send no se activa/envia
+    // res.send(`<h1>Hola ${req.params.nombreusuario}</h1>`);
+})
+
+app.listen(8080, () =>{
+console.log("Servidor 8080 escuchando");
+})
