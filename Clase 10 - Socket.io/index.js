@@ -11,6 +11,12 @@ const io = require('socket.io')(http);
 app.get('/', (req,res) =>{
     res.sendFile(__dirname+'/index.html')
 })
+
+//Trabajamos con io.on
+io.on('connection', (socket) => {
+    console.log('usuario conectado');
+})
+
 http.listen(8080, () => {
     console.log("Escuchando el servidor 8080");
 })
