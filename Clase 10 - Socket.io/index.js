@@ -17,6 +17,15 @@ app.use(express.static('public'));
 //Trabajamos con io.on
 io.on('connection', (socket) => {
     console.log('usuario conectado. ID: ' + socket.id);
+
+    //acá emitimos un mensaje desde el servidor cuyo contenido es un sencillo objeto
+    // io.emit('mensaje', {user: socket.id});
+    socket.on('mensaje', (data)=>{
+        io.emit('mensaje', data);
+        console.log(data);
+
+    })
+
     socket.on('disconnect', () => {
         console.log("usuario se ha desconectado");
     })
