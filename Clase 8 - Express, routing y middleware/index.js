@@ -54,17 +54,32 @@ Agregar el parámetro nombreusuario al final de la ruta
 Para hacerla dinámica. */
 
 
+// app.get('/api/usuarios/:nombreusuario', (req,res) => {
+//     res.json({
+//         "usuario": "uss1",
+//         "password": "contrasenia123",
+//         "nombreusuario": `${req.params.nombreusuario}`
+//     })
+
+//     // Al enviar la res.json, la res.send no se activa/envia
+//     // res.send(`<h1>Hola ${req.params.nombreusuario}</h1>`);
+// })
+
+/* EJERCICIO 5.
+Primero mostrá los datos que obtenes de la ruta creada en el punto anterior.
+Luego reemplazá en el JSON creado en el punto 3 uss1 por el contenido del
+parámetro nombreusuario.  */
+
 app.get('/api/usuarios/:nombreusuario', (req,res) => {
     res.json({
-        "usuario": "uss1",
+        "usuario": `${req.params.nombreusuario}`,
         "password": "contrasenia123",
-        "nombreusuario": `${req.params.nombreusuario}`
+        "nombreusuario": `${req.params.nombreusuario}`,
+        "ruta": __dirname
     })
-
-    // Al enviar la res.json, la res.send no se activa/envia
-    // res.send(`<h1>Hola ${req.params.nombreusuario}</h1>`);
 })
 
 app.listen(8080, () =>{
 console.log("Servidor 8080 escuchando");
 })
+
