@@ -35,16 +35,43 @@ Generar un middleware llamado logged que nos dé el método, la ruta y el códig
 estado que esté utilizando el sistema en ese momento. */
 
 
-const logged = (req,res,next) => {
+// const logged = (req,res,next) => {
+//     const ruta = req.url;
+//     const codigoEstado = res.statusCode;
+//     const metodo = req.method;
+//     console.log("ruta: ", ruta, "codigoEstado: ", codigoEstado, "metodo: ", metodo);
+//     next();
+// }
+
+// app.get('/', (req,res) => {
+//     res.send("Hola Mundo!")
+// })
+// app.use(logged);
+
+// app.listen(8080, () => {
+//     console.log("Escuchando puerto 8080");
+// })
+
+/*EJERCICIO 3.
+Generar un MW que devuelva por el navegador “Error 404: Página no encontrada”. */
+
+const error404 = (req,res,next) => {
     const ruta = req.url;
     const codigoEstado = res.statusCode;
-    const metodo = req.method;
-    console.log("ruta: ", ruta, "codigoEstado: ", codigoEstado, "metodo: ", metodo);
+    if (ruta != '/') {
+        console.log("Error 404: Pagina no encontrada");
+        res.send("Error 404: Pagina no encontrada")
+    }
     next();
 }
 
-app.use(logged);
+app.get('/', (req,res) => {
+    res.send("Bienvenido!Acá si podes estar, porque ésta pagina está configurada!")
+})
+app.use(error404);
 
 app.listen(8080, () => {
     console.log("Escuchando puerto 8080");
 })
+
+//Ésta solución "funciona", pero no me deja contento; porque acá sólo aclaro una ruta, que es la root. Si tuviera 10, 15, 30 o más rutas, cómo sería?
