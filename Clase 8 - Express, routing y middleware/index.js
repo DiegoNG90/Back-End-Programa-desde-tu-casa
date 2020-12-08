@@ -29,7 +29,7 @@ Modificar el ejercicio anterior para que devuelva un JSON
 } */
 
 //ésta línea va a permitir a EXPRESS leer el JSON, interpretarlo y mostrarlo
-// app.use(express.json());
+app.use(express.json());
 
 // app.get('/api/usuarios', (req,res) =>{
 //     const user = {
@@ -70,16 +70,48 @@ Primero mostrá los datos que obtenes de la ruta creada en el punto anterior.
 Luego reemplazá en el JSON creado en el punto 3 uss1 por el contenido del
 parámetro nombreusuario.  */
 
-app.get('/api/usuarios/:nombreusuario', (req,res) => {
-    res.json({
-        "usuario": `${req.params.nombreusuario}`,
-        "password": "contrasenia123",
-        "nombreusuario": `${req.params.nombreusuario}`,
-        "ruta": __dirname
-    })
+// app.get('/api/usuarios/:nombreusuario', (req,res) => {
+//     res.json({
+//         "usuario": `${req.params.nombreusuario}`,
+//         "password": "contrasenia123",
+//         "nombreusuario": `${req.params.nombreusuario}`,
+//         "ruta": __dirname
+//     })
+// })
+
+// app.listen(8080, () =>{
+// console.log("Servidor 8080 escuchando");
+// })
+
+/* Middlewares.
+EJERCICIO 6.
+Crear un middleware que nos informe a qué hora se genera una petición. Usá new
+Date con el método toLocaleTimeString */
+
+// const express = require('express');
+// const app = express();
+
+let evento; 
+
+const myMiddleware = (req,res, next)=> {
+    evento = `La petición se realiza a las:  ${new Date().toLocaleTimeString()}`;
+    console.log(evento);
+
+    //No se puede hacer; ésto no es estrictamente una funcion.
+    // return event.toLocaleDateString()
+    next();
+}
+
+app.use(myMiddleware);
+
+app.get('/', (req,res) =>{
+    console.log(evento);
+    res.send(evento);
 })
 
-app.listen(8080, () =>{
-console.log("Servidor 8080 escuchando");
+const port = 3000;
+app.listen(port, () => {
+    console.log("Escuchando el puerto 3000");
 })
+
 
