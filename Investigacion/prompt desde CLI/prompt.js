@@ -9,7 +9,7 @@
 //     readline.close()
 // })
 
-/*Ahora supongamos que queremos meter de input una contrasela. Tenemos que trabajar con otro módulo, llamado inquirer */
+/*Veamos una manera de hacer lo mismo */
 const inquirer = require('inquirer')
 
 let question = [
