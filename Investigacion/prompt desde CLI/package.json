@@ -1,0 +1,15 @@
+{
+  "name": "prompt-cli",
+  "version": "1.0.0",
+  "description": "investigacion sobre maneras de emular un metodo prompt desde la terminal de Node",
+  "main": "prompt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "requirer": "0.0.4"
+  }
+}
