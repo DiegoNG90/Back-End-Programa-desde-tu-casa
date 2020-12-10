@@ -13,6 +13,9 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
     console.log("Un usuario se ha logueado");
 
+    socket.on('mensaje chat', (msj) => {
+        console.log(msj);
+    });
 
     //configuramos la desconexion del lado del cliente
 })
