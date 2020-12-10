@@ -13,14 +13,16 @@ var questions = [
   {
       type: 'confirm',
       name: 'yes/no',
-      message: 'Are you 18 or older?'
+      message: 'Are you 18 or older?: Yes/No'
   }
 ]
-//
+//Programa para acceso a un bar
 inquirer.prompt(questions).then(answers => {
   console.log(`Hi ${answers['name']}!`);
-  //Acá tengo un problema; cómo hago para hacer referencia al valor booleano de la 2da pregutan (el confirm)?
-
+  
+  // imprimiendo answers, obtengo un objeto. Con ésta línea descifré la siguiente.
   // console.log(answers);
+
+  //Operador ternario: si es mayor, bienvenido, sino, a tu casa
   (answers['yes/no'])? console.log(`${answers['name']}, you are welcome in the club`) : console.log("You are a child, go home!");;
 });
