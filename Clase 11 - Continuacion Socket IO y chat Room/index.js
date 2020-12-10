@@ -12,6 +12,9 @@ app.use(express.static('public'));
 //Configuramos el io desde el lado del back
 io.on('connection', (socket) => {
     console.log("Un usuario se ha logueado");
+
+
+    //configuramos la desconexion del lado del cliente
 })
 
 
