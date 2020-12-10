@@ -1,8 +1,8 @@
 const express = require('express');
-const { Http2ServerRequest } = require('http2');
+const http = require('http');
 const app = express();
 const http = require('http').Server(app);
-const io = require('socket.io');
+const io = require('socket.io')();
 
 //app.use(express.static(path.join(__dirname+'public'))); INVESTIGAR
 //Con ésta línea, pedimos a express que use la carpeta public para ir a buscar los archivos estaticos
