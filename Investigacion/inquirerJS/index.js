@@ -1,4 +1,5 @@
-const inquirer = require('inquirer')
+const inquirer = require('inquirer');
+// const question  = require('readline-sync');
 
 var questions = [
   {
@@ -19,5 +20,7 @@ var questions = [
 inquirer.prompt(questions).then(answers => {
   console.log(`Hi ${answers['name']}!`);
   //Acá tengo un problema; cómo hago para hacer referencia al valor booleano de la 2da pregutan (el confirm)?
-  (answers['name'])? console.log(`${answers['name']}, you are welcome in the club`) : console.log("You are a child, go home!");;
+
+  // console.log(answers);
+  (answers['yes/no'])? console.log(`${answers['name']}, you are welcome in the club`) : console.log("You are a child, go home!");;
 });
