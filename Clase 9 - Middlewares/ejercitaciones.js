@@ -55,23 +55,47 @@ estado que esté utilizando el sistema en ese momento. */
 /*EJERCICIO 3.
 Generar un MW que devuelva por el navegador “Error 404: Página no encontrada”. */
 
-const error404 = (req,res,next) => {
-    const ruta = req.url;
-    const codigoEstado = res.statusCode;
-    if (ruta != '/') {
-        console.log("Error 404: Pagina no encontrada");
-        res.send("Error 404: Pagina no encontrada")
-    }
-    next();
-}
+// const error404 = (req,res,next) => {
+//     const ruta = req.url;
+//     const codigoEstado = res.statusCode;
+//     if (ruta != '/') {
+//         console.log("Error 404: Pagina no encontrada");
+//         res.send("Error 404: Pagina no encontrada")
+//     }
+//     next();
+// }
 
-app.get('/', (req,res) => {
-    res.send("Bienvenido!Acá si podes estar, porque ésta pagina está configurada!")
-})
-app.use(error404);
+// app.get('/', (req,res) => {
+//     res.send("Bienvenido!Acá si podes estar, porque ésta pagina está configurada!")
+// })
+// app.use(error404);
 
-app.listen(8080, () => {
-    console.log("Escuchando puerto 8080");
-})
+// app.listen(8080, () => {
+//     console.log("Escuchando puerto 8080");
+// })
 
 //Ésta solución "funciona", pero no me deja contento; porque acá sólo aclaro una ruta, que es la root. Si tuviera 10, 15, 30 o más rutas, cómo sería?
+
+
+/* EJERCICIO 4.
+Creá una función que setee el puerto 5500. */
+
+//2 dudas: 1)throw er; // Unhandled 'error' event?
+//2) Por qué no me toma el next?
+
+
+app.get('/', (req,res) => {
+    res.send("Hola, se creo el puerto 5500 y ahora ves ésto")
+})
+
+const setearPuerto3000 = (req,res,next) => {
+    app.listen(3000, ()=> {
+        console.log("Escuchando puerto 3000");
+    })
+    // next();
+}
+
+app.use(setearPuerto3000)
+
+setearPuerto3000();
+
