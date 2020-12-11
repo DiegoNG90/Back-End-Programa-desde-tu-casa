@@ -120,3 +120,8 @@ Fonts).
 Al título déjalo centrado y con negrita.
 Al párrafo ponele un color de fondo y un color de fuente que contraste. */
 
+/* Ejercicio 7.
+Agregá en /static una carpeta /js que contenga un archivo llamado index.js
+Este archivo agregá un temporizador (usando la función setTimeout) que tras
+transcurrir 2 segundos me cambie el contenido del título. */
+
