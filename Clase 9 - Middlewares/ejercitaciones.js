@@ -84,18 +84,30 @@ Creá una función que setee el puerto 5500. */
 //2) Por qué no me toma el next?
 
 
-app.get('/', (req,res) => {
-    res.send("Hola, se creo el puerto 5500 y ahora ves ésto")
-})
+// app.get('/', (req,res) => {
+//     res.send("Hola, se creo el puerto 5500 y ahora ves ésto")
+// })
 
-const setearPuerto3000 = (req,res,next) => {
-    app.listen(3000, ()=> {
-        console.log("Escuchando puerto 3000");
-    })
-    // next();
-}
+// const setearPuerto3000 = (req,res,next) => {
+//     app.listen(3000, ()=> {
+//         console.log("Escuchando puerto 3000");
+//     })
+//     // next();
+// }
 
-app.use(setearPuerto3000)
+// app.use(setearPuerto3000)
 
-setearPuerto3000();
+// setearPuerto3000();
 
+//Archivos estáticos.
+
+/* EJERCICIO 5.
+Generá una carpeta static y dentro un archivo index.html, que contendrá un título y
+un párrafo.
+Agregá los middlewares necesarios desde tu app.js para “levantar” este index. */
+
+app.use(express.static('static'));
+
+app.listen(8080, ()=> {
+    console.log("Escuchando puerto 8080");
+});
