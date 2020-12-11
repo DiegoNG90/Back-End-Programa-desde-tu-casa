@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    text-align: center;
+    font-weight: bolder;
+    margin: 0rem 12rem;
+}
+p{
+    background-color: tomato;
+    color: rgb(3, 73, 73);
+}

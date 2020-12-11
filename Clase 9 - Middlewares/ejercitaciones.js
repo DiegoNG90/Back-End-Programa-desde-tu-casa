@@ -111,3 +111,12 @@ app.use(express.static('static'));
 app.listen(8080, ()=> {
     console.log("Escuchando puerto 8080");
 });
+
+/* Ejercicio 6.
+Agregá dentro de /static un directorio llamado css y dentro el archivo styles.css.
+Dentro de este archivo agregá una clase que le genere lo siguientes estilos:
+A nivel general poné el margin en cero e importá la fuente Roboto (desde Google
+Fonts).
+Al título déjalo centrado y con negrita.
+Al párrafo ponele un color de fondo y un color de fuente que contraste. */
+
