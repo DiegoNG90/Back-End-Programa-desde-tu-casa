@@ -55,23 +55,23 @@ estado que esté utilizando el sistema en ese momento. */
 /*EJERCICIO 3.
 Generar un MW que devuelva por el navegador “Error 404: Página no encontrada”. */
 
-const error404 = (req,res,next) => {
-    res.status(404).send("Error 404: Página no encontrada")
-    next();
-}
+// const error404 = (req,res,next) => {
+//     res.status(404).send("Error 404: Página no encontrada")
+//     next();
+// }
 
-app.get('/', (req,res) => {
-    res.send("Bienvenido!Acá si podes estar, porque ésta pagina está configurada!")
-})
+// app.get('/', (req,res) => {
+//     res.send("Bienvenido!Acá si podes estar, porque ésta pagina está configurada!")
+// })
 
-app.get('/nosotros', (req,res) => {
-    res.send("Somos un equipo de estudiantes de programación.")
-})
-app.use(error404);
+// app.get('/nosotros', (req,res) => {
+//     res.send("Somos un equipo de estudiantes de programación.")
+// })
+// app.use(error404);
 
-app.listen(8080, () => {
-    console.log("Escuchando puerto 8080");
-})
+// app.listen(8080, () => {
+//     console.log("Escuchando puerto 8080");
+// })
 
 //Ésta solución "funciona", pero no me deja contento; porque acá sólo aclaro una ruta, que es la root. Si tuviera 10, 15, 30 o más rutas, cómo sería?
 
@@ -105,11 +105,11 @@ Generá una carpeta static y dentro un archivo index.html, que contendrá un tí
 un párrafo.
 Agregá los middlewares necesarios desde tu app.js para “levantar” este index. */
 
-// app.use(express.static('static'));
+app.use(express.static('static'));
 
-// app.listen(8080, ()=> {
-//     console.log("Escuchando puerto 8080");
-// });
+app.listen(8080, ()=> {
+    console.log("Escuchando puerto 8080");
+});
 
 /* Ejercicio 6.
 Agregá dentro de /static un directorio llamado css y dentro el archivo styles.css.
