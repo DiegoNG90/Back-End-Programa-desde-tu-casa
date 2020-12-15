@@ -18,9 +18,11 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
     console.log('usuario conectado. ID: ' + socket.id);
 
-    //acá emitimos un mensaje desde el servidor cuyo contenido es un sencillo objeto
     // io.emit('mensaje', {user: socket.id});
+
+    //acá escuchamos lo que viene del lado del cliente
     socket.on('mensaje', (data)=>{
+        //acá emitimos un mensaje desde el servidor hacia el cliente, dentro de la escucha. Esto es así porque desde acá, se manda a todos los sockets, es decir, a todos los usuarios del chat.
         io.emit('mensaje', data);
         console.log(data);
 
