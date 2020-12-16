@@ -10,9 +10,9 @@ io.on('connection', (socket)=>{
     //Chequeamos que el usuario haya ingresado
     console.log("Usuario conectado");
     
-    //recibimos el mensaje del lado del cliente
-    socket.on('mensaje', (msg) =>{
-        console.log(msg);
+    //2) recibimos el objeto del lado del cliente
+    socket.on('objeto', (data) =>{
+        console.log(data);
     })
     //configuramos el logut
     socket.on('disconnect', ()=>{
@@ -26,6 +26,19 @@ http.listen(8080, ()=> {
 
 /* EJERCICIO 1.
 ¿Cuál es la diferencia entre los eventos emit y on?
- 
+
 La diferencia es que emit EMITE el evento, mientras que ON setea para escuchar el evento.*/
+
+/*EJERCICIO 2.
+Hagamos un chat!
+Paso 1
+Hace una pantalla en el lado del cliente que contenga un botón únicamente.
+Generá un evento que se disparará cuando presiones el botón que recién creaste.
+Asignale un nombre y, al presionarlo, tendrá que mandarle el siguiente objeto al
+servidor:
+{
+nombre: “tuNombre”,
+edad: tuEdad
+}
+*/
 
