@@ -23,3 +23,9 @@ io.on('connection', (socket)=>{
 http.listen(8080, ()=> {
     console.log("Escuchando en puerto 8080");
 })
+
+/* EJERCICIO 1.
+¿Cuál es la diferencia entre los eventos emit y on?
+ 
+La diferencia es que emit EMITE el evento, mientras que ON setea para escuchar el evento.*/
+
