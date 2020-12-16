@@ -15,7 +15,7 @@ io.on('connection', (socket)=>{
     
     //2) recibimos el objeto del lado del cliente
     socket.on('objeto', (data) =>{
-        console.log(`${data.nombre} dice: Tengo ${data.edad} años`);
+        console.log(`${data.nombre} dice: "${data.edad}"`);
     })
 
     //4) recibimos el mensaje del lado del cliente
