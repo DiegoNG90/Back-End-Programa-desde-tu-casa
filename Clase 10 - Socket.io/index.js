@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        console.log("usuario se ha desconectado");
+        console.log(`usuario ${socket.id} se ha desconectado`);
     })
 })
 
