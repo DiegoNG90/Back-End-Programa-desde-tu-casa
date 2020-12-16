@@ -12,7 +12,7 @@ io.on('connection', (socket)=>{
     
     //2) recibimos el objeto del lado del cliente
     socket.on('objeto', (data) =>{
-        console.log(data);
+        console.log(`${data.nombre} dice: Tengo ${data.edad} años`);
     })
     //configuramos el logut
     socket.on('disconnect', ()=>{
@@ -41,4 +41,11 @@ nombre: “tuNombre”,
 edad: tuEdad
 }
 */
+
+/*Paso 2.
+El servidor obtendrá el evento y mostrará el objeto por consola:
+“tuNombre dice: Tengo tuEdad años”*/
+
+/*Paso 3.
+Generá un párrafo que informe que una persona se conectó. */
 
