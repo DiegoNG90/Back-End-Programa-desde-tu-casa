@@ -4,13 +4,30 @@ const socket = io();
 //emitimos msg
 // socket.emit('mensaje', "Hola");
 
+function chequearYBorrarErrores(input){
+    //Chequear si hay errores (li) antes y si hay, eliminarlos, para chequear con 0 li (errores):
+    while(input.firstChild){
+        input.removeChild(input.firstChild);
+    };
+}
 
 const enviarObjeto = () => {
     //5)
     const $nodoUserName = document.querySelector('#nombre-user').value;
     const $nodoInput = document.querySelector('#msg').value;
     const miObjeto = {nombre: `${$nodoUserName}`, edad: `${$nodoInput}`};
-    socket.emit('objeto', miObjeto);
+    //6
+    const $errores = document.querySelector('#errores');
+    const $error = document.createElement('li');
+    if ($nodoInput && $nodoUserName) {
+        chequearYBorrarErrores($errores);
+        socket.emit('objeto', miObjeto);
+    } else {
+        $error.style.color = "red";
+        $error.innerHTML = `<p>El campo de nickname y/o de mensaje está/n vacío/s. Asegurese de completar ambos para empezar a chatear</p>`
+        $errores.appendChild($error);
+        console.log();
+    }
 }
 const $nodoBtnBack = document.querySelector('.btn-danger');
 
@@ -59,3 +76,5 @@ Agregá dos input type text, el primero se usará para agregar el nombre de un
 usuario mientras que el segundo será el mensaje que queremos transmitir. Luego
 adaptá el punto 1 para que deban enviarse ambos valores.*/
 
+/* Paso 6
+Validá que no puedas enviar un mensaje si antes no escribiste ambos inputs. */
