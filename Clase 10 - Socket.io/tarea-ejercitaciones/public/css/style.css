@@ -4,3 +4,7 @@ h1 {
     text-align: center;
     text-decoration: underline;
 }
+.btn-success{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}

@@ -9,9 +9,9 @@ const enviarObjeto = () => {
     const miObjeto = {nombre: "Diego", edad: 30};
     socket.emit('objeto', miObjeto);
 }
-const $nodoBtn = document.querySelector('.btn-danger');
+const $nodoBtnBack = document.querySelector('.btn-danger');
 
-$nodoBtn.addEventListener('click', enviarObjeto);
+$nodoBtnBack.addEventListener('click', enviarObjeto);
 
 
 /*EJERCICIO 2.
@@ -26,3 +26,26 @@ nombre: “tuNombre”,
 edad: tuEdad
 }
 */
+
+/* /*Paso 3.
+Generá un párrafo que informe que una persona se conectó. */
+
+const $nodoParrafo = document.querySelector('#user-conectado');
+
+socket.on('user conectado', (data)=> {
+    $nodoParrafo.innerText = data;
+})
+/* Paso 4.
+Generá un append a tu HTML del lado del cliente para que todos puedan ver el
+mensaje que escribiste (Por ahora solo podrán ver “tuNombre dice...” */
+const enviarMensaje = () => {
+    const $nodoInput = document.querySelector('.form-control').value;
+    socket.emit('mensaje', $nodoInput);
+}
+
+const $nodoBtnMsg = document.querySelector('.btn-success');
+$nodoBtnMsg.addEventListener('click', enviarMensaje);
+const $nodoChatDiego = document.querySelector('#chat-diego');
+socket.on('mensaje', (data)=>{
+    $nodoChatDiego.innerHTML += `<p>${data}</p>`;
+})

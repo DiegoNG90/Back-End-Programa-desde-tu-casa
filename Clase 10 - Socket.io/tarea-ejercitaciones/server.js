@@ -1,4 +1,5 @@
 const express = require('express');
+const { on } = require('process');
 const app = express();
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
@@ -9,10 +10,18 @@ app.use(express.static('public'));
 io.on('connection', (socket)=>{
     //Chequeamos que el usuario haya ingresado
     console.log("Usuario conectado");
+
+    io.emit('user conectado', `Un usuario se ha conectado`);
     
     //2) recibimos el objeto del lado del cliente
     socket.on('objeto', (data) =>{
         console.log(`${data.nombre} dice: Tengo ${data.edad} años`);
+    })
+
+    //4) recibimos el mensaje del lado del cliente
+    socket.on('mensaje', (data)=> {
+        console.log(`Diego dice "${data}"`);
+        io.emit('mensaje', `Diego dice ${data}`)
     })
     //configuramos el logut
     socket.on('disconnect', ()=>{
@@ -48,4 +57,8 @@ El servidor obtendrá el evento y mostrará el objeto por consola:
 
 /*Paso 3.
 Generá un párrafo que informe que una persona se conectó. */
+
+/* Paso 4.
+Generá un append a tu HTML del lado del cliente para que todos puedan ver el
+mensaje que escribiste (Por ahora solo podrán ver “tuNombre dice...” */
 
