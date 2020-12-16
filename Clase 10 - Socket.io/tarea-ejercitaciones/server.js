@@ -3,6 +3,8 @@ const app = express();
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
 
+app.use(express.static('public'));
+
 http.listen(8080, ()=> {
     console.log("Escuchando en puerto 8080");
 })
