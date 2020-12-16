@@ -21,7 +21,7 @@ io.on('connection', (socket)=>{
     //4) recibimos el mensaje del lado del cliente
     socket.on('mensaje', (data)=> {
         console.log(`Diego dice "${data}"`);
-        io.emit('mensaje', `Diego dice ${data}`)
+        io.emit('mensaje', `${data.user} dice ${data.mensaje}`)
     })
     //configuramos el logut
     socket.on('disconnect', ()=>{
@@ -61,4 +61,8 @@ Generá un párrafo que informe que una persona se conectó. */
 /* Paso 4.
 Generá un append a tu HTML del lado del cliente para que todos puedan ver el
 mensaje que escribiste (Por ahora solo podrán ver “tuNombre dice...” */
+
+/* Paso7
+Cuando un usuario esté escribiendo debe aparecer el mensaje “<tuNombre> está
+escribiendo”. */
 

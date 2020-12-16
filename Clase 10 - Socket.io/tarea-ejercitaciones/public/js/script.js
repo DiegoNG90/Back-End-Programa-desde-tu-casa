@@ -61,7 +61,11 @@ Generá un append a tu HTML del lado del cliente para que todos puedan ver el
 mensaje que escribiste (Por ahora solo podrán ver “tuNombre dice...” */
 const enviarMensaje = () => {
     const $nodoInput = document.querySelector('#msg').value;
-    socket.emit('mensaje', $nodoInput);
+    const $nodoUserName = document.querySelector('#nombre-user').value;
+
+    const mensaje = {mensaje: $nodoInput, user: $nodoUserName}
+
+    socket.emit('mensaje', mensaje);
 }
 
 const $nodoBtnMsg = document.querySelector('.btn-success');
