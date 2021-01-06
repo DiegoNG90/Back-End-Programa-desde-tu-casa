@@ -26,7 +26,10 @@ connectionDb.query('SELECT * FROM t_alumnos', (err, results) => {
     if(err){
         throw err;
     }else{
-        console.log(results);
+        //console.log(results);
+        results.forEach((resultado) => {
+            console.log(resultado.nombre);
+        })
     }
 })
 
