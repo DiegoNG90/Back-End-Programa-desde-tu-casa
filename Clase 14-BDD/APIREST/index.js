@@ -20,6 +20,16 @@ connectionDb.connect( (err) => {
     }
 } )
 
+//Ahora vamos a aprender a usar MySQL desde éste script, que se ejecuta desde NODEJS
+
+connectionDb.query('SELECT * FROM t_alumnos', (err, results) => {
+    if(err){
+        throw err;
+    }else{
+        console.log(results);
+    }
+})
+
 app.listen(8080, ()=> {
     console.log("Servidor escucuando en puerto 8080");
 })
