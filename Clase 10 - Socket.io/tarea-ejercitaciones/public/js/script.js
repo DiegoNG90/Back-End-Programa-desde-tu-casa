@@ -69,6 +69,7 @@ const enviarMensaje = () => {
 }
 
 const $nodoBtnMsg = document.querySelector('.btn-success');
+//On click para enviar mensaje
 $nodoBtnMsg.addEventListener('click', enviarMensaje);
 const $nodoChatDiego = document.querySelector('#chat-diego');
 socket.on('mensaje', (data)=>{
@@ -82,3 +83,23 @@ adaptá el punto 1 para que deban enviarse ambos valores.*/
 
 /* Paso 6
 Validá que no puedas enviar un mensaje si antes no escribiste ambos inputs. */
+
+/* Paso7
+Cuando un usuario esté escribiendo debe aparecer el mensaje “<tuNombre> está
+escribiendo”. */
+
+const miMsj = 0;
+const userTyping = document.querySelector('#chat-diego'); 
+
+userTyping.addEventListener('keypress', ()=>{
+    socket.emit('tecleando',`${nombreUsuario.value} esta escribiendo...` )
+    miMsj = 1
+  })
+
+socket.on('escribiendo', (data) => {
+    escribiendo.innerHTML = `<p>${data}</p>`
+  //despues de 2 segundos borra el mensaje
+  setTimeout(()=>{
+    escribiendo.innerHTML = '.'
+  },2000)
+});

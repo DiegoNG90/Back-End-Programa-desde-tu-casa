@@ -20,8 +20,12 @@ io.on('connection', (socket)=>{
 
     //4) recibimos el mensaje del lado del cliente
     socket.on('mensaje', (data)=> {
-        console.log(`Diego dice "${data}"`);
+        console.log(`Diego dice "${data.mensaje}"`);
         io.emit('mensaje', `${data.user} dice ${data.mensaje}`)
+    })
+    //7)
+    socket.on('tecleando', (data) => {
+        socket.broadcast.emit('escribiendo', data);
     })
     //configuramos el logut
     socket.on('disconnect', ()=>{
