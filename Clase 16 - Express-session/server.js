@@ -1,5 +1,7 @@
 const express = require('express');
 const session = require('express-session');
+const mysql = require('mysql');
+const MySQLStore = require('express-mysql-session')(session);
 const app = express();
 const port = 8080;
 
