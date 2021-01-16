@@ -1,5 +1,8 @@
 const connectionDb = require('../config/dbConfig.js')
 
+
+
+//Controladores
 const obtenerAlumno = (req,res) => {
     connectionDb.query('SELECT * FROM t_alumnos', (err, results) => {
         if(err)
@@ -14,4 +17,22 @@ const obtenerAlumno = (req,res) => {
     })
 }
 
-module.exports = {obtenerAlumno}
+const agregarAlumno = (req, res) => {
+    //destructuring:
+    // let id = req.body.id;
+    // let alumno = req.body.alumno;
+    //...y así para los otros 4. En vez de eso, podemos hacer un destructuring:
+    let {id, nombre, apellido, email, telefono, curso} = req.body;
+    // console.log( req.body );
+    connectionDb.query('INSERT INTO `t_alumnos`(`id`, `nombre`, `apellido`, `email`, `telefono`, `curso`) VALUES (?,?,?,?,?,?)',[id, nombre, apellido, email, telefono, curso], (err, results) => {
+        if(err)
+         throw err;
+        res.send("Datos enviados con éxito")
+        // console.log(results);
+    })
+}
+
+module.exports = {
+    obtenerAlumno,
+    agregarAlumno
+}
