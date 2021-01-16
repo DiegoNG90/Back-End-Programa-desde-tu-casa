@@ -32,7 +32,19 @@ const agregarAlumno = (req, res) => {
     })
 }
 
+const eliminarAlumno = (req, res) => {
+    let {id} = req.body;
+    console.log( id );
+    connectionDb.query('DELETE FROM `t_alumnos` WHERE id = ?',[id], (err, results) => {
+        if(err)
+        throw err;
+        // console.log(results);
+        res.send("Alumno eliminado con exito")
+    })
+}
+
 module.exports = {
     obtenerAlumno,
-    agregarAlumno
+    agregarAlumno,
+    eliminarAlumno
 }

@@ -7,15 +7,13 @@ const alumno_controlador = require('./controlers/controllers.js');
 app.use(express.json());
 app.use(express.urlencoded())
 
-//Rutas y Controladores 
+//Rutas
 
 app.get('/', alumno_controlador.obtenerAlumno); 
 
-app.post('/productos', alumno_controlador.agregarAlumno);
+app.post('/alumnos', alumno_controlador.agregarAlumno);
 
-
-//Ahora vamos a aprender a usar MySQL desde éste script, que se ejecuta desde NODEJS
-
+app.delete('/alumnos/:id', alumno_controlador.eliminarAlumno)
 
 
 app.listen(8080, ()=> {
