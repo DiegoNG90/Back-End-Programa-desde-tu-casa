@@ -33,7 +33,7 @@ const agregarAlumno = (req, res) => {
 }
 
 const eliminarAlumno = (req, res) => {
-    let {id} = req.body;
+    let id = req.params.id;
     console.log( id );
     connectionDb.query('DELETE FROM `t_alumnos` WHERE id = ?',[id], (err, results) => {
         if(err)
@@ -43,8 +43,21 @@ const eliminarAlumno = (req, res) => {
     })
 }
 
+const editarAlumno = (req, res) => {
+    let id = req.params.id;
+    let {nombre, apellido, email, telefono, curso} = req.body;
+    console.log( id );
+    connectionDb.query('UPDATE `t_alumnos` SET ? WHERE id = ?',[req.body, id], (err, results) => {
+        if(err)
+        throw err;
+        // console.log(results);
+        res.send("Alumno editado/actualizado con exito")
+    })
+}
+
 module.exports = {
     obtenerAlumno,
     agregarAlumno,
-    eliminarAlumno
+    eliminarAlumno,
+    editarAlumno
 }

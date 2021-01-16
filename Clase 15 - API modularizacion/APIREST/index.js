@@ -13,8 +13,9 @@ app.get('/', alumno_controlador.obtenerAlumno);
 
 app.post('/alumnos', alumno_controlador.agregarAlumno);
 
-app.delete('/alumnos/:id', alumno_controlador.eliminarAlumno)
+app.delete('/alumnos/:id', alumno_controlador.eliminarAlumno);
 
+app.put('/alumnos/:id', alumno_controlador.editarAlumno);
 
 app.listen(8080, ()=> {
     console.log("Servidor escucuando en puerto 8080");
