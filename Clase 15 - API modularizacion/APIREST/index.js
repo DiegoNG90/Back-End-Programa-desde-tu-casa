@@ -5,7 +5,7 @@ const alumnosRouter = require('./routes/alumnos.js')
 
 //Middlewares
 app.use(express.json());
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:true}));
 app.use('/gestoralumnos', alumnosRouter)
 
 
