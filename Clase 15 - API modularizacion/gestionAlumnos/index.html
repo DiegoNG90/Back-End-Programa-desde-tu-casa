@@ -11,7 +11,7 @@
 
     <section class="formulario">
         <h1>Datos del alumno</h1>
-        <form action="http://localhost:8080/gestoralumnos/alumnos" method="POST">
+        <form id="formulario-alumnos">
             <label for="id">ID alumno
             <input type="number" name="id" id="id"></label><br>
             <label for="nombre"> Nombre del alumno
@@ -19,7 +19,7 @@
             <label for="apellido"> Apellido del alumno
             <input type="text" name="apellido" id="apellido"></label><br>
             <label for="email">Email
-            <input type="text" name="email" id="email"></label><br>
+            <input type="email" name="email" id="email"></label><br>
             <label for="telefono">Telefono
             <input type="text" name="telefono" id="telefono"></label><br>
             <label for="curso"> Curso
@@ -29,6 +29,8 @@
         </form>
     </section>
     
-    <!-- <script src='main.js'></script> -->
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src='./js/script.js'></script>
 </body>
 </html>
