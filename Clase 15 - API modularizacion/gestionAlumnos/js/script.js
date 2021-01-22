@@ -1,5 +1,23 @@
 console.log("script linkeado a index.html");
 
+function peticionAlumnos() {
+    axios.get("http://localhost:8080/gestoralumnos/")
+    .then((response)=>{
+        mostrarAlumnos(response.data);
+    })   
+}
+
+function mostrarAlumnos(data){
+    const listadoAlumnos = document.querySelector("#listado-alumnos");
+
+    data.forEach((element) => {
+        listadoAlumnos.innerHTML += `<li> ${element.id} || ${element.nombre} || ${element.apellido} || ${element.email} || ${element.telefono} || ${element.curso}`
+        // console.log(element);
+    });
+}
+
+
+
 const formularioAlumnos = document.querySelector("#formulario-alumnos");
 // console.log(formularioAlumnos);
 function enviarDatos(e){
