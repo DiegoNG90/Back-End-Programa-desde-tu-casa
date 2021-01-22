@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ingresar nuevo alumno</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+</head>
+<body>
+
+    <section class="formulario">
+        <h1>Datos del alumno</h1>
+        <form action="http://localhost:8080/gestoralumnos/alumnos" method="POST">
+            <label for="id">ID alumno
+            <input type="number" name="id" id="id"></label><br>
+            <label for="nombre"> Nombre del alumno
+            <input type="text" name="nombre" id="nombre"></label><br>
+            <label for="apellido"> Apellido del alumno
+            <input type="text" name="apellido" id="apellido"></label><br>
+            <label for="email">Email
+            <input type="text" name="email" id="email"></label><br>
+            <label for="telefono">Telefono
+            <input type="text" name="telefono" id="telefono"></label><br>
+            <label for="curso"> Curso
+            <input type="text" name="curso" id="curso"></label><br>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    
+    <!-- <script src='main.js'></script> -->
+</body>
+</html>
