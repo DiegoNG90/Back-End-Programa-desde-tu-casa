@@ -34,7 +34,7 @@ const agregarAlumno = (req, res) => {
 
 const eliminarAlumno = (req, res) => {
     let id = req.params.id;
-    console.log( id );
+    console.log("id N°" + id + " ha sido eliminado" );
     connectionDb.query('DELETE FROM `t_alumnos` WHERE id = ?',[id], (err, results) => {
         if(err)
         throw err;
